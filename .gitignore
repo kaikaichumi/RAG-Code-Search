@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 向量資料庫（檔案太大，不上傳到 Git）
+chroma_db_*/
+*.db
+*.sqlite
+
+# 日誌檔案
+*.log
+
+# 暫存檔案
+tmp/
+temp/
+*.tmp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# 使用者特定的設定（可能含有敏感資訊）
+# 如果你的 config.yaml 沒有敏感資訊，可以把下面這行註解掉
+# config.yaml

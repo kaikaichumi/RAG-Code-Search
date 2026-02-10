@@ -1,0 +1,33 @@
+# ============================================================
+# RAG 系統 Python 依賴套件
+# ============================================================
+# 安裝方式：pip install -r requirements.txt
+
+# LangChain 核心套件
+langchain==0.3.13
+langchain-core==0.3.28
+langchain-community==0.3.13
+langchain-text-splitters==0.3.5
+langchain-classic==0.3.6
+
+# LangChain 整合
+langchain-ollama==0.2.3
+langchain-openai==0.2.14
+langchain-chroma==0.1.4
+
+# 向量資料庫
+chromadb==0.5.25
+
+# Web UI
+gradio==5.12.0
+
+# 文件處理
+chardet==5.2.0
+
+# 工具
+pyyaml==6.0.2
+tqdm==4.67.1
+colorama==0.4.6
+
+# 向量運算
+numpy==2.4.2
