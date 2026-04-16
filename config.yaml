@@ -1,31 +1,14 @@
-# ============================================================
-# RAG 知識庫設定檔
-# ============================================================
-
-# --- 專案路徑 ---
-project:
-  # 專案根目錄（會掃描底下的子目錄）
-  # 執行 rag_builder.py 時會讓你選擇要索引哪些資料夾
-  # Windows 範例: "D:/code/my_project"
-  # Linux/Mac 範例: "/home/user/my_project"
-  root_path: "D:/code/claude_test/eclipse/HM_original"
-
-  # 要排除的目錄（不會被索引）
+﻿project:
+  root_path: "F:/coding/assistant"
   exclude_dirs:
     - ".metadata"
     - ".git"
     - "node_modules"
     - "venv"
-    - "RAG"
-    - "RAG_search"
-    - "bin"
-    - "build"
-    - "target"
-    - ".settings"
     - "__pycache__"
     - "dist"
-
-  # 要索引的檔案類型
+    - "build"
+    - "target"
   file_extensions:
     - ".java"
     - ".py"
@@ -51,68 +34,29 @@ project:
     - ".scss"
     - ".sql"
 
-# --- Embedding 設定（本機）---
 embedding:
-  # Ollama Embedding 模型
-  # 推薦模型：
-  # - qwen3-embedding:0.6b（中文+程式碼雙強，較大但效果好）
-  # - nomic-embed-text（輕量快速，英文為主）
-  # - bge-m3（中文強）
   model: "qwen3-embedding:0.6b"
-
-  # Ollama 服務位址（本機或遠端）
   base_url: "http://localhost:11434"
 
-# --- LLM 設定（API）---
 llm:
-  # LLM API 位址（OpenAI 相容格式）
-  # 本機 Ollama 範例: "http://localhost:11434/v1"
-  # 遠端 API 範例: "http://192.168.1.100:8000/v1"
-  base_url: "http://localhost:11434/v1"
-
-  # API Key（如果不需要就留空字串）
+  base_url: "http://127.0.0.1:8000/v1"
   api_key: "not-needed"
-
-  # 模型名稱（依你的 API 回傳的模型名稱填寫）
-  # Ollama 範例: "qwen2.5:14b", "llama3.1:8b"
-  model: "qwen2.5:14b"
-
-  # 溫度（0 = 最精確，越高越有創意）
+  model: "Qwen3.5-9B-UD-Q4_K_XL.gguf"
   temperature: 0.1
+  max_tokens: 2048
 
-  # 最大 token 數
-  max_tokens: 4096
-
-# --- 向量資料庫設定 ---
 vectorstore:
-  # 搜尋時回傳的片段數量
-  # 越多：上下文越豐富，但回答越慢
-  # 越少：回答更快，但可能不夠精準
-  # 建議範圍: 3-10
+  persist_directory: "./chroma_db"
   search_top_k: 6
 
-# --- 文件切割設定 ---
 chunking:
-  # 每個片段的字元數
-  # 較大：保留更多上下文，但可能不夠精確
-  # 較小：更精確，但可能遺失上下文
-  # 建議範圍: 1000-3000
   chunk_size: 1500
-
-  # 片段間重疊的字元數（確保上下文不斷裂）
-  # 建議為 chunk_size 的 15-20%
   chunk_overlap: 300
 
-# --- Web UI 設定 ---
 web_ui:
-  # Gradio 伺服器設定
-  # "0.0.0.0" = 允許區網內其他電腦訪問
-  # "127.0.0.1" = 只允許本機訪問
   host: "0.0.0.0"
-
-  # 埠口
-  port: 7860
-
-  # 是否分享到外網（Gradio 提供的公開連結）
-  # 警告：設為 true 會產生公開網址，任何人都可以訪問
+  port: 7861
   share: false
+
+
+
